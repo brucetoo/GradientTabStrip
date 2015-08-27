@@ -31,6 +31,8 @@ import java.util.Locale;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 
+    private int mCurrentPosition;
+
     public interface IconTabProvider {
         public int getPageIconResId(int position);
     }
@@ -376,6 +378,16 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 scrollToChild(pager.getCurrentItem(), 0);
+                ColorGradientView choosed = (ColorGradientView) tabsContainer.getChildAt(mCurrentPosition);
+                //跨tab点击的时候 防止tab渲染的颜色不对称
+                for(int i = 0; i < tabsContainer.getChildCount(); i++){
+                    ColorGradientView tmp = (ColorGradientView) tabsContainer.getChildAt(i);
+                    if(choosed != tmp){
+                        tmp.setOffset(0);
+                    }else {
+                        tmp.setOffset(1);
+                    }
+                }
             }
 
             if (delegatePageListener != null) {
@@ -385,6 +397,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageSelected(int position) {
+            mCurrentPosition = position;
             if (delegatePageListener != null) {
                 delegatePageListener.onPageSelected(position);
             }

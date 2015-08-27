@@ -18,7 +18,7 @@ public class PagerActivity extends FragmentActivity {
     private PagerSlidingTabStrip strip;
     private ViewPager pager;
     private SimpleAdapter adapter;
-    private String[] strs = new String[]{"WHAT","THE","FUCK","DOUBI"};
+    private String[] strs = new String[]{"首页","手游","端游","娱乐"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
