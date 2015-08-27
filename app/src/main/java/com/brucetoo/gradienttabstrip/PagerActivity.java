@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 
 /**
  * Created by Bruce Too
@@ -18,7 +19,7 @@ public class PagerActivity extends FragmentActivity {
     private PagerSlidingTabStrip strip;
     private ViewPager pager;
     private SimpleAdapter adapter;
-    private String[] strs = new String[]{"首页","手游","端游","娱乐","首页","手游","端游","娱乐"};
+    private String[] strs = new String[]{"首页","手游","端游","娱乐"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class PagerActivity extends FragmentActivity {
         //设置选中的颜色
         strip.setTextColor(Color.parseColor("#df322e"));
         //设置文本大小
-        strip.setTextSize(40);
+        strip.setTextSize(14);
         //指示器颜色
         strip.setIndicatorColor(Color.parseColor("#df322e"));
         //指示器高度
@@ -49,6 +50,10 @@ public class PagerActivity extends FragmentActivity {
         strip.setViewPager(pager);
     }
 
+    private int sp2px(float dpVal) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
+                dpVal, getResources().getDisplayMetrics());
+    }
     class SimpleAdapter extends FragmentPagerAdapter {
 
         public SimpleAdapter(FragmentManager fm) {

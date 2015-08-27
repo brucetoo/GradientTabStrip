@@ -20,7 +20,6 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -214,10 +213,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private void addTextTab(final int position, String title) {
 
-        ColorGradientView tab = new ColorGradientView(getContext());
-        tab.setmText(title);
-        if(position == 0)
+        GradientTextView tab = new GradientTextView(getContext());
+        tab.setText(title);
+        //初始化添加Tab的时候分类设置字体的大小
+        if(position == 0) {
             tab.setOffset(1);
+            tab.setTextSize(16);
+        }else {
+            tab.setTextSize(14);
+        }
 //        tab_bg.setGravity(Gravity.CENTER);
 //        tab_bg.setSingleLine();
 
@@ -254,29 +258,29 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             v.setBackgroundResource(tabBackgroundResId);
 
-            if(v instanceof ColorGradientView){
-                ColorGradientView view = (ColorGradientView)v;
-                view.setmTextSize(tabTextSize);
+            if(v instanceof GradientTextView){
+                GradientTextView view = (GradientTextView)v;
+//                view.setTextSize(tabTextSize);
                 view.setmTextLeftColor(tabTextColor);
             }
 
-            if (v instanceof TextView) {
-
-                TextView tab = (TextView) v;
-                tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
-                tab.setTypeface(tabTypeface, tabTypefaceStyle);
-                tab.setTextColor(tabTextColor);
-
-                // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
-                // pre-ICS-build
-                if (textAllCaps) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                        tab.setAllCaps(true);
-                    } else {
-                        tab.setText(tab.getText().toString().toUpperCase(locale));
-                    }
-                }
-            }
+//            if (v instanceof TextView) {
+//
+//                TextView tab = (TextView) v;
+//                tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, tabTextSize);
+//                tab.setTypeface(tabTypeface, tabTypefaceStyle);
+//                tab.setTextColor(tabTextColor);
+//
+//                // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
+//                // pre-ICS-build
+//                if (textAllCaps) {
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+//                        tab.setAllCaps(true);
+//                    } else {
+//                        tab.setText(tab.getText().toString().toUpperCase(locale));
+//                    }
+//                }
+//            }
         }
 
     }
@@ -354,8 +358,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             if (positionOffset > 0)
             {
-                ColorGradientView left = (ColorGradientView) tabsContainer.getChildAt(position);
-                ColorGradientView right = (ColorGradientView) tabsContainer.getChildAt(position+1);
+                GradientTextView left = (GradientTextView) tabsContainer.getChildAt(position);
+                GradientTextView right = (GradientTextView) tabsContainer.getChildAt(position+1);
 
                 left.setmDirection(1);
                 right.setmDirection(0);
@@ -378,14 +382,16 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 scrollToChild(pager.getCurrentItem(), 0);
-                ColorGradientView choosed = (ColorGradientView) tabsContainer.getChildAt(mCurrentPosition);
+                GradientTextView choosed = (GradientTextView) tabsContainer.getChildAt(mCurrentPosition);
                 //跨tab点击的时候 防止tab渲染的颜色不对称
                 for(int i = 0; i < tabsContainer.getChildCount(); i++){
-                    ColorGradientView tmp = (ColorGradientView) tabsContainer.getChildAt(i);
+                    GradientTextView tmp = (GradientTextView) tabsContainer.getChildAt(i);
                     if(choosed != tmp){
                         tmp.setOffset(0);
+                        tmp.setTextSize(14);
                     }else {
                         tmp.setOffset(1);
+                        tmp.setTextSize(18);
                     }
                 }
             }

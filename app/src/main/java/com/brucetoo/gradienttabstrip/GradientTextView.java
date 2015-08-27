@@ -54,6 +54,11 @@ public class GradientTextView extends TextView {
         invalidate();
     }
 
+    public void setmTextLeftColor(int mTextLeftColor) {
+        this.mTextLeftColor = mTextLeftColor;
+        invalidate();
+    }
+
     public void setmDirection(int mDirection) {
         this.mDirection = mDirection;
     }
