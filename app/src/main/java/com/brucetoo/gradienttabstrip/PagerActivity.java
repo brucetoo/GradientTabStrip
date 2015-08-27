@@ -18,7 +18,7 @@ public class PagerActivity extends FragmentActivity {
     private PagerSlidingTabStrip strip;
     private ViewPager pager;
     private SimpleAdapter adapter;
-    private String[] strs = new String[]{"首页","手游","端游","娱乐"};
+    private String[] strs = new String[]{"首页","手游","端游","娱乐","首页","手游","端游","娱乐"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class PagerActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return strs.length;
         }
 
         @Override

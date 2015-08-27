@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 public class SingleFragment extends Fragment {
 
     private ColorGradientView viewColor;
+    private GradientTextView text;
 
     @Nullable
     @Override
@@ -25,16 +26,21 @@ public class SingleFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         viewColor = (ColorGradientView) view.findViewById(R.id.view);
+        text = (GradientTextView) view.findViewById(R.id.text);
         view.findViewById(R.id.left).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewColor.setmDirection(0);
                 ObjectAnimator.ofFloat(viewColor, "offset", 0, 1).setDuration(2000)
                         .start();
+                text.setmDirection(0);
+                ObjectAnimator.ofFloat(text, "offset", 0, 1).setDuration(2000)
+                        .start();
+
             }
         });
 
@@ -43,6 +49,10 @@ public class SingleFragment extends Fragment {
             public void onClick(View v) {
                 viewColor.setmDirection(1);
                 ObjectAnimator.ofFloat(viewColor, "offset", 0, 1).setDuration(2000)
+                        .start();
+
+                text.setmDirection(1);
+                ObjectAnimator.ofFloat(text, "offset", 0, 1).setDuration(2000)
                         .start();
             }
         });

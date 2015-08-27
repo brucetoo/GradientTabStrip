@@ -19,7 +19,7 @@ public class ColorGradientView extends View {
 
     private Paint mTextPaint;
     //字体大小
-    private int mTextSize = 30;
+    private int mTextSize = 40;
     //文本
     private String mText = "WHAT THE FUCK";
     //文本高度
