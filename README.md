@@ -25,3 +25,6 @@
          strip.setDividerColor(android.R.color.transparent);
 ```
 
+##TODO
+Maybe animate textview in tab when scroll viewpager
+
