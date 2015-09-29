@@ -23,13 +23,13 @@ public class GradientTextView extends TextView {
     private float offset;
     private String mText;
     private int mDirection = DIRECTION_LEFT_TO_RIGHT;
-    //方向
+    //Direction
     private static int DIRECTION_LEFT_TO_RIGHT = 0;
     private static int DIRECTION_RIGHT_TO_LEFT = 1;
 
-    //文本左边颜色
+    //left text color
     private int mTextLeftColor = 0xffff0000;
-    //文本右边颜色
+    //right text color
     private int mTextRightColor = 0xff000000;
 
     public GradientTextView(Context context) {
@@ -79,7 +79,7 @@ public class GradientTextView extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //渐变的中点 左右渐变
+        //the middle of gradient,like divider
         int middle = (int) (mTextStartX + offset*mTextWidth);
         mText = getText().toString();
 //        getPaint().setTextSize(40);
@@ -96,7 +96,7 @@ public class GradientTextView extends TextView {
     private void drawLeft(int middle, int mTextLeftColor,Canvas canvas) {
         getPaint().setColor(mTextLeftColor);
 
-        canvas.save();//保存绘制的状态是必须的 -- 如果不保存状态在此有是  渐进的显示出字体 可屏蔽看效果
+        canvas.save();//save canvas,u can ignore this to see effect
         canvas.clipRect(mTextStartX, 0, middle, getMeasuredHeight());
         /**
          drawText的时候 Y 值其实是基准线的位置  getMeasuredHeight() / 2 - ((mPaint.descent() + mPaint.ascent()) //此算法比较精准
@@ -108,10 +108,16 @@ public class GradientTextView extends TextView {
         canvas.restore();
     }
 
+    /**
+     * Clip right
+     * @param middle
+     * @param mTextRightColor
+     * @param canvas
+     */
     private void drawRight(int middle, int mTextRightColor,Canvas canvas) {
         getPaint().setColor(mTextRightColor);
 
-        canvas.save(); //保存绘制的状态是必须的 -- 如果不保存状态在此有是  渐进的显示出字体 可屏蔽看效果
+        canvas.save();
         //剪裁的矩形区域
         canvas.clipRect(middle, 0, mTextWidth+mTextStartX, getMeasuredHeight());
         //绘制文本 y 值最难确定

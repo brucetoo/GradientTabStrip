@@ -19,7 +19,7 @@ public class PagerActivity extends FragmentActivity {
     private PagerSlidingTabStrip strip;
     private ViewPager pager;
     private SimpleAdapter adapter;
-    private String[] strs = new String[]{"首页","手游","端游","娱乐"};
+    private String[] strs = new String[]{"WHAT","THE","FUCK","DAY"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +31,19 @@ public class PagerActivity extends FragmentActivity {
 
         adapter = new SimpleAdapter(getSupportFragmentManager());
 
-        //设置选中的颜色
+        //tab chose color
         strip.setTextColor(Color.parseColor("#df322e"));
-        //设置文本大小
+        //tab text size
         strip.setTextSize(14);
-        //指示器颜色
+        //indicator color
         strip.setIndicatorColor(Color.parseColor("#df322e"));
-        //指示器高度
+        //indicator height
         strip.setIndicatorHeight(4);
-        //下划线高度
+        //underline height
         strip.setUnderlineHeight(1);
-        //拉伸？
+        //expand?
         strip.setShouldExpand(true);
-        //tab间的分割线 -- 透明表示没有
+        //divider between tab
         strip.setDividerColor(android.R.color.transparent);
 
         pager.setAdapter(adapter);

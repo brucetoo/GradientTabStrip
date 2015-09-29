@@ -215,7 +215,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         GradientTextView tab = new GradientTextView(getContext());
         tab.setText(title);
-        //初始化添加Tab的时候分类设置字体的大小
+        //init tab text size
         if(position == 0) {
             tab.setOffset(1);
             tab.setTextSize(16);
