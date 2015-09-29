@@ -1,5 +1,7 @@
 
 # GradientTabStrip
+# NOTE:
+See Branch demo-text
 > **GradientTabStrip** Change from [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
 
 ![](app/source/sample.png)
