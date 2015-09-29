@@ -1,4 +1,5 @@
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-GradientTabStrip-green.svg?style=flat)](https://android-arsenal.com/details/3/2574)
 # GradientTabStrip
 > **GradientTabStrip** Change from [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
 
