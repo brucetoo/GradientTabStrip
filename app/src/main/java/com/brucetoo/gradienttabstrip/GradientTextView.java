@@ -28,10 +28,9 @@ public class GradientTextView extends TextView {
     private static int DIRECTION_RIGHT_TO_LEFT = 1;
 
     //left text color
-    private int mTextLeftColor = 0xffff0000;
+    private int textLeftColor = 0xffff0000;
     //right text color
-    private int mTextRightColor = 0xff000000;
-
+    private int textRightColor = 0xff000000;
     public GradientTextView(Context context) {
         super(context);
     }
@@ -54,8 +53,13 @@ public class GradientTextView extends TextView {
         invalidate();
     }
 
-    public void setmTextLeftColor(int mTextLeftColor) {
-        this.mTextLeftColor = mTextLeftColor;
+    public void setTextLeftColor(int textLeftColor) {
+        this.textLeftColor = textLeftColor;
+        invalidate();
+    }
+
+    public void setTextRightColor(int textRightColor) {
+        this.textRightColor = textRightColor;
         invalidate();
     }
 
@@ -84,12 +88,12 @@ public class GradientTextView extends TextView {
         mText = getText().toString();
 //        getPaint().setTextSize(40);
         if(mDirection == DIRECTION_LEFT_TO_RIGHT) {
-            drawLeft(middle, mTextLeftColor, canvas);
-            drawRight(middle,mTextRightColor,canvas);
+            drawLeft(middle, textLeftColor, canvas);
+            drawRight(middle, textRightColor,canvas);
         }else if(mDirection == DIRECTION_RIGHT_TO_LEFT){
             middle = (int) (mTextStartX + (1-offset)*mTextWidth);
-            drawLeft(middle,mTextRightColor,canvas);
-            drawRight(middle,mTextLeftColor,canvas);
+            drawLeft(middle, textRightColor,canvas);
+            drawRight(middle, textLeftColor,canvas);
         }
     }
 

@@ -1,19 +1,25 @@
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-GradientTabStrip-green.svg?style=flat)](https://android-arsenal.com/details/3/2574)
 # GradientTabStrip
+Pretty awesome effect of ViewPager
 > **GradientTabStrip** Change from [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
+Pretty awesome effect of ViewPager
 
-![Sample1](app/source/sample1.png)
+![Sample1](app/source/demo.gif)
 
 ![Sample2](app/source/sample2.png)
 
 ##USAGE
 ```java
  Just use as PagerSlidingTabStrip
-         //tab chose color
-         strip.setTextColor(Color.parseColor("#df322e"));
+         //tab text color
+         strip.setTextColor(Color.parseColor("#000000"));
+         //tab chose text color
+         strip.setTabChoseTextColor(Color.parseColor("#df322e"));
          //tab text size
-         strip.setTextSize(14);
+         strip.setTextSize(13);
+         //tab chose text size
+         strip.setTabChoseTextSize(17);
          //indicator color
          strip.setIndicatorColor(Color.parseColor("#df322e"));
          //indicator height
@@ -27,7 +33,9 @@
 ```
 
 ##TODO
-Maybe animate textview in tab when scroll viewpager
+~~Maybe animate textview in tab when scroll viewpager~~
+
+Thinking.....
 
 ## License
 

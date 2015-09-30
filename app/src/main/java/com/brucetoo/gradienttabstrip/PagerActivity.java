@@ -31,10 +31,14 @@ public class PagerActivity extends FragmentActivity {
 
         adapter = new SimpleAdapter(getSupportFragmentManager());
 
-        //tab chose color
-        strip.setTextColor(Color.parseColor("#df322e"));
+        //tab text color
+        strip.setTextColor(Color.parseColor("#000000"));
+        //tab chose text color
+        strip.setTabChoseTextColor(Color.parseColor("#df322e"));
         //tab text size
-        strip.setTextSize(14);
+        strip.setTextSize(13);
+        //tab chose text size
+        strip.setTabChoseTextSize(17);
         //indicator color
         strip.setIndicatorColor(Color.parseColor("#df322e"));
         //indicator height
