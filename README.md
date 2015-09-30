@@ -7,7 +7,7 @@ Pretty awesome effect of ViewPager
 
 ![Sample1](app/source/demo.gif)
 
-![Sample2](app/source/sample2.png)
+![Sample2](app/source/sample1.png)
 
 ##USAGE
 ```java
