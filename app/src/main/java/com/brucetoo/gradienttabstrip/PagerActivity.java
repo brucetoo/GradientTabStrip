@@ -32,15 +32,15 @@ public class PagerActivity extends FragmentActivity {
         adapter = new SimpleAdapter(getSupportFragmentManager());
 
         //tab text color
-        strip.setTextColor(Color.parseColor("#000000"));
+        strip.setTextColor(Color.parseColor("#b0f5ff"));
         //tab chose text color
-        strip.setTabChoseTextColor(Color.parseColor("#df322e"));
+        strip.setTabChoseTextColor(Color.parseColor("#ffffff"));
         //tab text size
         strip.setTextSize(13);
         //tab chose text size
         strip.setTabChoseTextSize(17);
         //indicator color
-        strip.setIndicatorColor(Color.parseColor("#df322e"));
+        strip.setIndicatorColor(Color.parseColor("#ffffff"));
         //indicator height
         strip.setIndicatorHeight(4);
         //underline height
@@ -49,6 +49,8 @@ public class PagerActivity extends FragmentActivity {
         strip.setShouldExpand(true);
         //divider between tab
         strip.setDividerColor(android.R.color.transparent);
+
+        strip.setBackgroundColor(Color.parseColor("#24d2ea"));
 
         pager.setAdapter(adapter);
         strip.setViewPager(pager);

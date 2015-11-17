@@ -37,7 +37,7 @@ public class SingleFragment extends Fragment {
                 viewColor.setmDirection(0);
                 ObjectAnimator.ofFloat(viewColor, "offset", 0, 1).setDuration(2000)
                         .start();
-                text.setmDirection(0);
+                text.setDirection(0);
                 ObjectAnimator.ofFloat(text, "offset", 0, 1).setDuration(2000)
                         .start();
 
@@ -51,7 +51,7 @@ public class SingleFragment extends Fragment {
                 ObjectAnimator.ofFloat(viewColor, "offset", 0, 1).setDuration(2000)
                         .start();
 
-                text.setmDirection(1);
+                text.setDirection(1);
                 ObjectAnimator.ofFloat(text, "offset", 0, 1).setDuration(2000)
                         .start();
             }

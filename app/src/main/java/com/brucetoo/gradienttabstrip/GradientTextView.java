@@ -22,15 +22,15 @@ public class GradientTextView extends TextView {
     private int mTextStartY;
     private float offset;
     private String mText;
-    private int mDirection = DIRECTION_LEFT_TO_RIGHT;
+    private int direction = DIRECTION_LEFT_TO_RIGHT;
     //Direction
     private static int DIRECTION_LEFT_TO_RIGHT = 0;
     private static int DIRECTION_RIGHT_TO_LEFT = 1;
 
     //left text color
-    private int textLeftColor = 0xffff0000;
+    private int textChooseColor = 0xffff0000;
     //right text color
-    private int textRightColor = 0xff000000;
+    private int textNormalColor = 0xff000000;
     public GradientTextView(Context context) {
         super(context);
     }
@@ -53,18 +53,18 @@ public class GradientTextView extends TextView {
         invalidate();
     }
 
-    public void setTextLeftColor(int textLeftColor) {
-        this.textLeftColor = textLeftColor;
+    public void setTextChooseColor(int textChooseColor) {
+        this.textChooseColor = textChooseColor;
         invalidate();
     }
 
-    public void setTextRightColor(int textRightColor) {
-        this.textRightColor = textRightColor;
+    public void setTextNormalColor(int textNormalColor) {
+        this.textNormalColor = textNormalColor;
         invalidate();
     }
 
-    public void setmDirection(int mDirection) {
-        this.mDirection = mDirection;
+    public void setDirection(int direction) {
+        this.direction = direction;
     }
 
     @Override
@@ -87,13 +87,13 @@ public class GradientTextView extends TextView {
         int middle = (int) (mTextStartX + offset*mTextWidth);
         mText = getText().toString();
 //        getPaint().setTextSize(40);
-        if(mDirection == DIRECTION_LEFT_TO_RIGHT) {
-            drawLeft(middle, textLeftColor, canvas);
-            drawRight(middle, textRightColor,canvas);
-        }else if(mDirection == DIRECTION_RIGHT_TO_LEFT){
+        if(direction == DIRECTION_LEFT_TO_RIGHT) {
+            drawLeft(middle, textChooseColor, canvas);
+            drawRight(middle, textNormalColor,canvas);
+        }else if(direction == DIRECTION_RIGHT_TO_LEFT){
             middle = (int) (mTextStartX + (1-offset)*mTextWidth);
-            drawLeft(middle, textRightColor,canvas);
-            drawRight(middle, textLeftColor,canvas);
+            drawLeft(middle, textNormalColor,canvas);
+            drawRight(middle, textChooseColor,canvas);
         }
     }
 

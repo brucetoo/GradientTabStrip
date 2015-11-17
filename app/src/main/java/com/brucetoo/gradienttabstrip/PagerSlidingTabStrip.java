@@ -264,8 +264,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
             if(v instanceof GradientTextView){
                 GradientTextView view = (GradientTextView)v;
-                view.setTextLeftColor(tabChoseTextColor);
-                view.setTextRightColor(tabTextColor);
+                view.setTextChooseColor(tabChoseTextColor);
+                view.setTextNormalColor(tabTextColor);
             }
         }
 
@@ -347,12 +347,15 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 GradientTextView left = (GradientTextView) tabsContainer.getChildAt(position);
                 GradientTextView right = (GradientTextView) tabsContainer.getChildAt(position+1);
 
-                left.setmDirection(1);
-                right.setmDirection(0);
+                left.setDirection(1);
+                right.setDirection(0);
                 left.setOffset(1 - positionOffset);
                 left.setTextSize(tabTextSize + (tabChoseTextSize - tabTextSize) * (1 - positionOffset));
+                left.setTextColor(Math.round(tabTextColor + (tabChoseTextColor - tabTextColor) * (1 - positionOffset)));
+
                 right.setOffset(positionOffset);
-                right.setTextSize(tabTextSize+(tabChoseTextSize-tabTextSize)*positionOffset);
+                right.setTextSize(tabTextSize + (tabChoseTextSize - tabTextSize) * positionOffset);
+                right.setTextColor(Math.round(tabTextColor + (tabChoseTextColor - tabTextColor) * positionOffset));
             }
             currentPosition = position;
             currentPositionOffset = positionOffset;
