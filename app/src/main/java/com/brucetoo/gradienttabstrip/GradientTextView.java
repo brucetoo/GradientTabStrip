@@ -24,8 +24,8 @@ public class GradientTextView extends TextView {
     private String mText;
     private int mDirection = DIRECTION_LEFT_TO_RIGHT;
     //Direction
-    private static int DIRECTION_LEFT_TO_RIGHT = 0;
-    private static int DIRECTION_RIGHT_TO_LEFT = 1;
+    public static int DIRECTION_LEFT_TO_RIGHT = 0;
+    public static int DIRECTION_RIGHT_TO_LEFT = 1;
 
     //left text color
     private int textLeftColor = 0xffff0000;
@@ -63,7 +63,7 @@ public class GradientTextView extends TextView {
         invalidate();
     }
 
-    public void setmDirection(int mDirection) {
+    public void setDirection(int mDirection) {
         this.mDirection = mDirection;
     }
 

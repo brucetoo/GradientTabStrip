@@ -342,17 +342,26 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+
             if (positionOffset > 0)
             {
                 GradientTextView left = (GradientTextView) tabsContainer.getChildAt(position);
                 GradientTextView right = (GradientTextView) tabsContainer.getChildAt(position+1);
 
-                left.setmDirection(1);
-                right.setmDirection(0);
+                left.setDirection(GradientTextView.DIRECTION_RIGHT_TO_LEFT);
+                right.setDirection(GradientTextView.DIRECTION_LEFT_TO_RIGHT);
                 left.setOffset(1 - positionOffset);
                 left.setTextSize(tabTextSize + (tabChoseTextSize - tabTextSize) * (1 - positionOffset));
                 right.setOffset(positionOffset);
                 right.setTextSize(tabTextSize+(tabChoseTextSize-tabTextSize)*positionOffset);
+
+                for (int i = 0; i < tabsContainer.getChildCount(); i++) {
+                  View child = tabsContainer.getChildAt(i);
+                  if (!child.equals(left) && !child.equals(right)) {
+                    ((GradientTextView) child).setDirection(GradientTextView.DIRECTION_LEFT_TO_RIGHT);
+                    ((GradientTextView) child).setOffset(0);
+                  }
+                }
             }
             currentPosition = position;
             currentPositionOffset = positionOffset;
@@ -368,6 +377,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageScrollStateChanged(int state) {
+
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 scrollToChild(pager.getCurrentItem(), 0);
                 GradientTextView choosed = (GradientTextView) tabsContainer.getChildAt(mCurrentPosition);
