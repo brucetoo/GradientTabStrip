@@ -9,7 +9,7 @@ Pretty awesome effect of ViewPager
 
 ![Sample2](app/source/sample1.png)
 
-##USAGE
+## USAGE
 ```java
  Just use as PagerSlidingTabStrip
          //tab text color
@@ -32,7 +32,7 @@ Pretty awesome effect of ViewPager
          strip.setDividerColor(android.R.color.transparent);
 ```
 
-##TODO
+## TODO
 ~~Maybe animate textview in tab when scroll viewpager~~
 
 Thinking.....
